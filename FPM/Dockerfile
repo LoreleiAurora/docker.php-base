@@ -1,6 +1,8 @@
 FROM alpine:3.6
 MAINTAINER Lorelei Aurora <iam@l5i.me>
 
+ENV WP_CLI_URL https://github.com/wp-cli/wp-cli/releases/download/v1.3.0/wp-cli-1.3.0.phar
+
 RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ \
         curl \
         php7 \
@@ -32,7 +34,10 @@ RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/te
         php7-xmlreader \
         php7-zip \
         php7-zlib \
-    && echo 'extension=sodium.so' > /etc/php7/conf.d/50_libsodium.ini
+    && echo 'extension=sodium.so' > /etc/php7/conf.d/50_libsodium.ini \
+\
+    && curl -L -o /usr/bin/wp "${WP_CLI_URL}" \
+    && chmod +x /usr/bin/wp
 
 COPY ./fs /
 
