@@ -23,6 +23,7 @@ RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/te
         php7-mysqli \
         php7-mysqlnd \
         php7-openssl \
+        php7-pdo_mysql \
         php7-phar \
         php7-posix \
         php7-redis \
