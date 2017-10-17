@@ -3,8 +3,9 @@ MAINTAINER Lorelei Aurora <iam@l5i.me>
 
 ENV WP_CLI_URL https://github.com/wp-cli/wp-cli/releases/download/v1.3.0/wp-cli-1.3.0.phar
 
-RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ \
+RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ \
         curl \
+        libsodium \
         php7 \
         php7-ctype \
         php7-curl \
